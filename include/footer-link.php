@@ -1,0 +1,1 @@
+<script src="<?php echo BASE_URL ;?>/resources/jquery-3.7.1.min.js"></script>

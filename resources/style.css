@@ -1,0 +1,299 @@
+@font-face {
+    font-family: 'Helvetica Neue LT Std';
+    src: url('HelveticaNeueLTStd-Md.otf') format('opentype');
+    font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+    font-family: 'Helvetica Neue LT Std', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --prime: #F58220;
+    --sec: #58595C;
+}
+
+.bg-light {
+    background-color: #e3e2e3 !important;
+}
+
+body {
+    background-color: #fff;
+    color: #58595C;
+}
+
+main {
+    min-height: calc(100vh - 204px);
+}
+
+
+.bg-prime {
+    background: var(--prime)
+}
+
+
+.text-prime {
+    color: var(--prime)
+}
+
+.text-sec {
+    color: var(--sec)
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.fs-7 {
+    font-size: 14px;
+}
+
+
+.w-fit {
+    width: fit-content;
+}
+
+.btn-prime {
+    background: var(--prime);
+    color: #fff;
+    padding: 3px 30px;
+    border-radius: 40px !important;
+    white-space: nowrap;
+    transition: all .3s ease-in-out;
+    font-size: large;
+    border: 2px solid var(--prime);
+}
+
+.btn-sec {
+    background: #fff;
+    border: 2px solid var(--prime);
+    color: var(--prime);
+    padding: 3px 30px;
+    border-radius: 40px !important;
+    white-space: nowrap;
+    transition: all .3s ease-in-out;
+    font-size: large;
+}
+
+button:hover {
+    transform: scale(.9)
+}
+
+
+/* Header & footer CSS */
+header {
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+header a img {
+    max-height: 60px;
+}
+
+@media (max-width:476px) {
+    header a img {
+        max-height: 40px;
+    }
+
+    header .btn-prime {
+        padding: 4px 20px;
+    }
+}
+
+
+/* forms */
+details {
+    position: relative;
+}
+
+details summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+details summary::after {
+    content: "▶";
+    display: inline-block;
+    margin-left: 1rem;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+form {
+    max-width: 400px;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+}
+
+.next-step {
+    justify-content: center;
+    display: flex;
+}
+
+form details,
+form input {
+    border: 2px solid #dddddd;
+    border-radius: 40px;
+    padding: 10px 16px;
+    width: 100%;
+    background: #eeeeee;
+    outline: none !important
+}
+
+form details[open] {
+    border-radius: 20px;
+}
+
+form details label {
+    cursor: pointer;
+    width: 100%;
+}
+
+details hr {
+    margin: 6px 0;
+}
+
+details .location {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 10px 0;
+}
+
+details .time {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: .75rem;
+    padding: 10px 0;
+}
+
+details .time label,
+details .location label {
+    text-align: center;
+    border: 2px solid #dddddd;
+    border-radius: 40px;
+    padding: 6px 10px;
+    width: 100%;
+    background: #E3E2E3;
+    outline: none !important
+}
+
+details .time label:has(input:checked),
+details .location label:has(input:checked),
+details .time label:hover,
+details .location label:hover {
+    background: var(--prime);
+    color: #fff;
+}
+
+details .time label {
+    font-size: 14px;
+    padding: 4px 6px;
+}
+
+/* calender */
+.calendar {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 1rem;
+}
+
+.calendar-header .month-name {
+    font-size: 16px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 10px;
+}
+
+
+.days-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+.day.selected,
+.day:hover {
+    background-color: var(--prime);
+    color: #fff;
+}
+
+.empty {
+    background-color: transparent !important;
+    border: none;
+    cursor: default;
+}
+
+@media (max-width:768px) {
+    .next-step {
+        display: none;
+    }
+
+    .next-step.d-flex {
+        display: flex;
+    }
+
+    details .location label,
+    details .time label {
+        padding: 4px 6px 2px;
+    }
+}
+
+@media (max-width:400px) {
+    details .time {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .day {
+        padding: 4px 4px 0px;
+    }
+}
