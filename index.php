@@ -239,16 +239,19 @@
         $(document).on('change', 'input[name="location"]', function() {
             const selectedLabel = $(this).parent().text().trim();
             $('details[open] summary').text(`Selected Location : ${selectedLabel}`);
+            $("details[open]").removeAttr("open");
         });
 
         $(document).on('change', 'input[name="city"]', function() {
             const selectedLabel = $(this).parent().text().trim();
             $('details[open] summary').text(`Selected City : ${selectedLabel}`);
+            $("details[open]").removeAttr("open");
         });
 
         $(document).on('change', 'input[name="time"]', function() {
             const selectedLabel = $(this).parent().text().trim();
             $('details[open] summary').text(`Selected Time : ${selectedLabel}`);
+            $("details[open]").removeAttr("open");
         });
 
         $(document).on('click', '.calendar .day', function() {
@@ -256,9 +259,9 @@
             const monthyear = $('.calendar .month-name').text().trim();
             const formattedDate = `${day} ${monthyear}`;
             $('details[open] summary').text(`Selected Date : ${formattedDate}`);
-
             $('.calendar .day').removeClass('selected');
             $(this).addClass('selected');
+            $("details[open]").removeAttr("open");
         });
 
     });
