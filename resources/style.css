@@ -181,6 +181,7 @@ details[open] summary::after {
     transform: rotate(90deg);
 }
 
+.booking-confirmed,
 form {
     max-width: 400px;
 }
@@ -311,10 +312,27 @@ details .time label {
     text-align: center;
     cursor: pointer;
     user-select: none;
+    position: relative;
+}
+
+.day.today::after {
+    content: 'Today';
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    font-weight: 300;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.day.disabled {
+    font-weight: 400;
+    opacity: .7;
+    cursor: not-allowed;
 }
 
 .day.selected,
-.day:hover {
+.day:not(.disabled):hover {
     background-color: var(--prime);
     color: #fff;
 }
@@ -356,7 +374,29 @@ dialog:not([open]) {
     padding: 6px 40px 5px;
 }
 
+.bookingdetail div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.bookingdetail div span {
+    font-weight: 500;
+}
+
+.bookingdetail div h4 {
+    font-weight: 500;
+    font-size: 18px !important;
+    color: #000 !important;
+    text-decoration: underline;
+}
+
 @media (max-width:768px) {
+    /* .bookingdetail div {
+        display: block;
+        width: 100%;
+    } */
+
     .next-step {
         display: none;
     }
