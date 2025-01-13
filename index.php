@@ -11,7 +11,7 @@
 
     <main>
         <section class="bg-light d-lg-none">
-            <img src="<?php echo BASE_URL ;?>/images/banner.webp" alt="Banner" class="img-fluid rounded-4 my-3">
+            <img src="<?php echo BASE_URL ;?>/images/banner.webp" alt="Banner" class="img-fluid rounded-4 mt-3">
         </section>
         <section>
             <div class="container pb-5 pt-4">
@@ -22,7 +22,7 @@
 
                     <div class="col-lg-6 d-flex align-items-center justify-content-center pb-lg-4">
                         <form class="d-flex flex-column align-items-center justify-content-center pb-xl-4 gap-3">
-                            <h3 class="fs-5 px-md-4">Fill in your details to start your journey towards a pain-free
+                            <h3 class="fs-5 px-md-4 fw-medium">Fill in your details to start your journey towards a pain-free
                                 life!
                             </h3>
                             <div class="step">
@@ -114,7 +114,12 @@
                 </div>
             </div>
         </section>
-
+        <dialog>
+            <img src="<?php echo BASE_URL;?>/images/tick.svg" alt="tick" class="img-fluid mb-3" style="width:30px;">
+            <h4>Appointment Confirmed</h4>
+            <p>Thanks for booking an appointment with us. You will be contacted by our team shortly for further information.</p>
+            <button class="closedialog btn-prime">OK</button> 
+        </dialog>
 
     </main>
     <?php include('include/footer.php')?>
@@ -227,7 +232,7 @@
 
         $(".submit").on("click", function(e) {
             e.preventDefault();
-            alert("Form submitted!");
+             $('dialog')[0].showModal();
         });
 
         $("details").on("click", function() {
@@ -263,6 +268,10 @@
             $(this).addClass('selected');
             $("details[open]").removeAttr("open");
         });
+
+            $('.closedialog').on('click', function () {
+                $('dialog')[0].close();
+            });
 
     });
     </script>
