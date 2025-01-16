@@ -38,6 +38,10 @@ h4 {
     font-weight: 600;
 }
 
+.error {
+	color: red
+}
+
 
 .bg-light {
     background-color: #e3e2e3 !important;
@@ -45,7 +49,7 @@ h4 {
 
 body {
     background-color: #fff;
-    color: #58595C;
+    color: var(--sec) !important;
 }
 
 main {
@@ -146,6 +150,7 @@ details {
 form input {
     font-weight: 500;
     color: rgb(88, 89, 92) !important;
+    accent-color: var(--sec);
 }
 
 ::placeholder {
@@ -173,7 +178,7 @@ details summary::after {
 
 details:has(.selected) summary,
 details:has(input:checked) summary {
-    color: #000;
+    color: var(--sec) !important;
     opacity: 1;
 }
 
@@ -375,9 +380,10 @@ dialog:not([open]) {
 }
 
 .bookingdetail div {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 130px 1fr;
     gap: 10px;
+    padding-left: 20px;
 }
 
 .bookingdetail div span {
@@ -387,15 +393,15 @@ dialog:not([open]) {
 .bookingdetail div h4 {
     font-weight: 500;
     font-size: 18px !important;
-    color: #000 !important;
+    color: var(--sec)!important;
     text-decoration: underline;
 }
 
 @media (max-width:768px) {
-    /* .bookingdetail div {
-        display: block;
-        width: 100%;
-    } */
+    .bookingdetail div {
+        padding-left: 0px;
+        grid-template-columns: 130px 1fr;
+    }
 
     .next-step {
         display: none;
